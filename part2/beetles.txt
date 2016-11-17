@@ -1,0 +1,17 @@
+model {
+  
+  mean_dose <- mean(dose[])
+  for (i in 1:N){
+    logit(theta[i]) <- beta[1] + beta[2] * (dose[i] - mean_dose)
+    
+    died[i] ~ dbin(theta[i], n[i])
+  }
+  beta[1] ~ dnorm(0, 0.001)
+  beta[2] ~ dnorm(0, 0.001)
+  
+  # predictions
+  for (i in 1:N){
+    pred_died[i] ~ dbin(theta[i], n[i])
+  }
+}
+ 

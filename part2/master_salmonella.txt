@@ -1,0 +1,18 @@
+# based on Lunn 2013, p.116
+model {
+  
+  for (i in 1:n){
+    for (j in 1:m){
+      y[i,j] ~ dpois(mu[i])
+    }
+    log(mu[i]) <- alpha + beta *log(x[i] + 10) + gamma * x[i]
+  }
+  
+  for (k in 1:6){
+    y_pred[k] ~ dpois(mu[k])
+  }
+  
+  alpha ~ dnorm(0, 0.0001)
+  beta ~ dnorm(0, 0.0001)
+  gamma ~ dnorm(0, 0.0001)  
+}
