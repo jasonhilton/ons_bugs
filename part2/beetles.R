@@ -1,7 +1,7 @@
 
 # install relevant packages
 install.packages("glmx")
-install.packages("R2Winbugs")
+install.packages("R2WinBUGS")
 
 # glmx has the beetles dataset included
 library(glmx)
@@ -43,12 +43,12 @@ acfplot(beetles_mcmc_l)
 
 
 # mcmc.list is a list with an element for each change.
-str()
+str(beetles_mcmc_l)
 
 # we can also combine these elements into a single matrix
 beetles_mcmc_matrix <- as.matrix(beetles_mcmc_l)
 
-plot(beetles_mcmc_matrix[,5])
+plot(beetles_mcmc_matrix[,5], type="l")
 
 # we can get summary information by apply functions to each column
 par_means  <- apply(beetles_mcmc_matrix, 2, mean)
@@ -67,7 +67,7 @@ points(BeetleMortality$dose, par_quants["25%",][pred_indexes], type="l", lty=3)
 points(BeetleMortality$dose, par_quants["75%",][pred_indexes], type="l", lty=3)
 
 # try plotting different quantiles
-# HINT par_quants <- apply(beetles_mcmc_matrix, 2, quantile, probs= "your quantiles here")
+# HINT par_quants <- apply(beetles_mcmc_matrix, 2, quantile, probs= <your quantiles here>)
 
 
 # also try the different models discussed earlier ( quadratic logistic, cloglog)

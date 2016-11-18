@@ -14,4 +14,3 @@ model {
     pred_died[i] ~ dbin(theta[i], n[i])
   }
 }
- 
