@@ -17,4 +17,4 @@ Openbugs is an opensource implementation of bugs which is better maintained, but
 R should be installed on your machine along with Rstudio, the development environment for R. 
 
 # Homework
-The material for the homework for weeks one and two is now included in this repository, in the folder `Week_1_homework` and `Week_2_homework`. 
+The material for the homework for weeks one and two is now included in this repository, in the folders `Week_1_material` and `Week_2_homework`. 
